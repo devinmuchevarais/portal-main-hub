@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 稳定入口介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f2f9f9;
+            color: #1e2d2d;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* ---- Hero ---- */
+        .hero {
+            background: linear-gradient(135deg, #d4f0ed 0%, #b4dfd9 80%);
+            padding: 64px 0 56px;
+            border-bottom: 1px solid rgba(0, 120, 120, 0.12);
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0a4b4b;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 640px;
+            color: #1f4f4f;
+            margin-bottom: 28px;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: #ffffffcc;
+            backdrop-filter: blur(4px);
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #0a5b5b;
+            border: 1px solid #6bc2b6;
+        }
+
+        /* ---- 网格卡片 ---- */
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #0a4b4b;
+            margin-bottom: 28px;
+            border-left: 5px solid #2f9b8b;
+            padding-left: 16px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 28px 20px;
+            box-shadow: 0 6px 14px rgba(0, 70, 70, 0.04);
+            border: 1px solid #d0eae6;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 24px rgba(25, 110, 110, 0.08);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #105f5a;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #2d4f4b;
+            font-size: 0.95rem;
+        }
+
+        .card .icon {
+            font-size: 1.8rem;
+            display: inline-block;
+            margin-bottom: 12px;
+            color: #2b8c80;
+        }
+
+        /* ---- 说明区 ---- */
+        .explain {
+            background: white;
+            border-radius: 28px;
+            padding: 40px 32px;
+            margin: 32px 0 48px;
+            border: 1px solid #cbe3de;
+        }
+
+        .explain p {
+            margin-bottom: 18px;
+            font-size: 1rem;
+        }
+
+        .explain a {
+            color: #0b6b5f;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #2f9b8b;
+            padding-bottom: 1px;
+        }
+
+        .explain a:hover {
+            border-bottom: 2px solid #0b6b5f;
+        }
+
+        .highlight {
+            background: #e1f3ef;
+            border-radius: 12px;
+            padding: 4px 12px;
+            color: #11544b;
+            font-weight: 500;
+        }
+
+        /* ---- FAQ 摘要 ---- */
+        .faq-mini {
+            background: #e8f6f2;
+            padding: 36px 0;
+            border-radius: 48px 48px 0 0;
+            margin-top: 16px;
+        }
+
+        .faq-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #10524b;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .faq-q::before {
+            content: "▹";
+            color: #2f9b8b;
+        }
+
+        .faq-a {
+            color: #2f5250;
+            padding-left: 20px;
+            border-left: 2px solid #7ecbc0;
+            margin-left: 8px;
+            font-size: 0.95rem;
+        }
+
+        /* ---- 底部 ---- */
+        .footer {
+            background: #1b3a37;
+            color: #c6e3dc;
+            padding: 32px 0;
+            margin-top: auto;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #a7ddd0;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1px;
+        }
+
+        .footer a:hover {
+            color: #e2fff5;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 28px;
+        }
+
+        /* ---- 响应式 ---- */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .explain {
+                padding: 28px 18px;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h1>稳定的入口 · 清晰的页面</h1>
+            <p>浏览<a href="https://portal-main-i-game.com.cn" style="color:#095a4f; text-decoration:underline; text-underline-offset:4px;">爱游戏</a>的内容时，一个可靠且直达的访问起点能让体验更省心。我们关注页面结构、入口稳定性与信息可读性。</p>
+            <span class="tagline">✦ 直达 · 不绕路</span>
+        </div>
+    </section>
+
+    <!-- 优势区：网格卡片 -->
+    <div class="container">
+        <div class="card-grid">
+            <div class="card">
+                <div class="icon">⚙️</div>
+                <h3>入口稳定</h3>
+                <p>页面结构经过维护，减少访问中不必要的跳转与中断。适合习惯固定路径的用户。</p>
+            </div>
+            <div class="card">
+                <div class="icon">🧩</div>
+                <h3>说明清晰</h3>
+                <p>每个区域都有对应的描述与引导，不堆叠复杂模块。信息层级分明。</p>
+            </div>
+            <div class="card">
+                <div class="icon">📋</div>
+                <h3>通用适配</h3>
+                <p>兼顾移动端与桌面端浏览，页面布局跟随屏幕宽度自然调整。</p>
+            </div>
+            <div class="card">
+                <div class="icon">🔍</div>
+                <h3>常见问题摘要</h3>
+                <p>提炼最常被问到的几点，减少反复查找的麻烦。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 说明区：页面描述 + 自然嵌入链接 -->
+    <div class="container">
+        <div class="explain">
+            <h2 class="section-title" style="border-left-color: #3aa393; margin-bottom: 20px;">关于这个页面</h2>
+            <p>
+                很多人把 <a href="https://portal-main-i-game.com.cn">爱游戏</a> 当作日常浏览的固定站点，
+                因此我们希望这个介绍页能成为一个稳定的辅助说明——不夸大功能，不制造焦虑，只是把入口位置、页面分区和常见疑问如实写出来。
+            </p>
+            <p>
+                页面里不包含自动播放、弹窗或强制跳转。您随时可以通过导航回到<a href="https://portal-main-i-game.com.cn">爱游戏</a>本身。
+                下方的 FAQ 摘要覆盖了访问时最常遇到的几个问题，更多细节可参考站内指引。
+            </p>
+            <p>
+                <span class="highlight">提示</span> 如果您是第一次接触，建议先浏览页面整体结构，再根据需求使用具体功能。
+            </p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <div class="container">
+            <h2 class="section-title" style="border-left-color: #2a877a;">FAQ 摘要</h2>
+            <div class="faq-items">
+                <div>
+                    <div class="faq-q">页面有时加载较慢，是什么原因？</div>
+                    <div class="faq-a">受本地网络环境影响，个别资源可能加载稍慢。可尝试刷新或检查网络状态。页面本身未设置额外延迟。</div>
+                </div>
+                <div>
+                    <div class="faq-q">在手机上显示是否完整？</div>
+                    <div class="faq-a">页面针对移动端做了适配，卡片、文字和按钮宽度会随屏幕变化，基本保持可读性。</div>
+                </div>
+                <div>
+                    <div class="faq-q">如何快速回到主页面？</div>
+                    <div class="faq-a">页面内的链接指向 <a href="https://portal-main-i-game.com.cn" style="color:#176b60; text-decoration:underline;">爱游戏</a>，点击即可返回。</div>
+                </div>
+                <div>
+                    <div class="faq-q">页面信息会频繁更新吗？</div>
+                    <div class="faq-a">结构保持相对稳定，仅在必要时调整描述或链接。不做无意义改动。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <span><a href="https://portal-main-i-game.com.cn">爱游戏</a> · 介绍页</span>
+            <span>内容仅供参考</span>
+            <span>© 2025</span>
+        </div>
+    </footer>
+
+</body>
+</html>
